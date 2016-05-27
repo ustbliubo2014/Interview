@@ -4,9 +4,9 @@
 """
 @author: liubo-it
 @software: PyCharm Community Edition
-@file: deque.py
-@time: 2016/5/27 17:45
-@annotation: deque
+@file: __init__.py.py
+@time: 2016/5/27 17:54
+@annotation: __init__.py
 """
 
 
@@ -20,10 +20,4 @@ class Main(object):
 
 
 if __name__ == '__main__':
-    from collections import deque
-    queue = deque([1,2,3])
-    queue.append(4)
-    queue.append(5)
-    print queue.popleft()
-    print queue.popleft()
-
+    pass
