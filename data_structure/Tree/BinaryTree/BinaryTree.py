@@ -52,9 +52,11 @@ class BinaryTree(object):
         self.postOrder(tree_node.right)
         print tree_node.data
 
-    def preOrder_NoRecur(self):
+    def preOrder_NoRecur(self, root):
         # 前序遍历的非递归实现 --- 用栈实现
-        pass
+        stack = []
+        stack.append(root)
+
 
 
 
@@ -76,4 +78,6 @@ if __name__ == '__main__':
     print bt.midOrder(bt.root)
     print 'postOrder.....'
     print bt.postOrder(bt.root)
+    print 'preOrder NoRecur'
+    bt.preOrder_NoRecur(bt.root)
 
