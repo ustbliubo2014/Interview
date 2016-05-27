@@ -14,9 +14,16 @@ def func():
     pass
 
 
-class Main(object):
+class Node(object):
+    def __init__(self, data, next_node):
+        self.data = data
+        self.next = next_node
+
+
+class CircularLinkList(object):
     def __init__(self):
-        pass
+        self.head = None
+        self.tail = self.head
 
 
 if __name__ == '__main__':
