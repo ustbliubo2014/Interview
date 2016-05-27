@@ -69,7 +69,6 @@ class CircularLinkList(object):
         if self.get_length() == 1:
             print 'length = 1'
             return self.head.next_node
-
         current_node = self.head
         pre_current_node = None
         while self.get_length() >= 2:
@@ -80,7 +79,6 @@ class CircularLinkList(object):
             current_node = current_node.next_node
             print 'remove data :', del_node.data
             self.remove(del_node, pre_current_node)
-
         return self.head.next_node
 
 
