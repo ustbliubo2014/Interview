@@ -90,7 +90,8 @@ if __name__ == '__main__':
     cll.travel()
     print 'length :', cll.get_length()
 
-    print 'josephus :', cll.josephus(3).data
+    # print 'josephus :', cll.josephus(3).data
 
+    print 'josephus :', cll.josephus(5).data
 
 
