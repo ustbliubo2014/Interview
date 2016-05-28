@@ -55,8 +55,36 @@ class BinaryTree(object):
     def preOrder_NoRecur(self, root):
         # 前序遍历的非递归实现 --- 用栈实现
         stack = []
-        stack.append(root)
+        if root == None:
+            print '空树'
+            return
+        while((root != None) or (len(stack) > 0)):
+            while root != None:
+                print root.data
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            root = root.right
 
+    def midOrder_NoRecur(self, root):
+        stack = []
+        if root == None:
+            print '空树'
+            return
+        while((root != None) or (len(stack) > 0)):
+            while root != None:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            print root.data
+            root = root.right
+
+    def postOrder_NoRecur(self, root):
+        while root == None:
+            print '空树'
+            return
+        stack = []
+        while((len(stack) > 0) or (root != None)):
 
 
 
@@ -72,12 +100,14 @@ if __name__ == '__main__':
     root = Node('root', n7, n8)
 
     bt = BinaryTree(root)
-    print 'preOrder......'
-    print bt.preOrder(bt.root)
+    # print 'preOrder......'
+    # print bt.preOrder(bt.root)
     print 'inOrder......'
     print bt.midOrder(bt.root)
-    print 'postOrder.....'
-    print bt.postOrder(bt.root)
-    print 'preOrder NoRecur'
-    bt.preOrder_NoRecur(bt.root)
+    # print 'postOrder.....'
+    # print bt.postOrder(bt.root)
+    # print 'preOrder NoRecur'
+    # bt.preOrder_NoRecur(bt.root)
+    print 'inOrder NoRecur'
+    bt.midOrder_NoRecur(bt.root)
 
