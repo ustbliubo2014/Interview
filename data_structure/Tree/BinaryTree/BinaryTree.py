@@ -9,6 +9,7 @@
 @annotation: BinaryTree
 """
 
+import pdb
 
 def func():
     pass
@@ -84,8 +85,25 @@ class BinaryTree(object):
             print '空树'
             return
         stack = []
-        while((len(stack) > 0) or (root != None)):
-
+        flag = [-1]*200
+        while(root != None):
+            stack.append(root)
+            flag[len(stack)] = 0
+            root = root.left
+        while(len(stack) > 0):
+            root = stack[-1]
+            try:
+                while(root.right != None and flag[len(stack)]==0):
+                    flag[len(stack)] = 1
+                    root = root.right
+                    while root != None:
+                        stack.append(root)
+                        flag[len(stack)] = 0
+                        root = root.left
+                root = stack.pop()
+                print root.data
+            except:
+                continue
 
 
 if __name__ == '__main__':
@@ -102,12 +120,13 @@ if __name__ == '__main__':
     bt = BinaryTree(root)
     # print 'preOrder......'
     # print bt.preOrder(bt.root)
-    print 'inOrder......'
-    print bt.midOrder(bt.root)
+    # print 'inOrder......'
+    # print bt.midOrder(bt.root)
     # print 'postOrder.....'
     # print bt.postOrder(bt.root)
     # print 'preOrder NoRecur'
     # bt.preOrder_NoRecur(bt.root)
-    print 'inOrder NoRecur'
-    bt.midOrder_NoRecur(bt.root)
-
+    # print 'inOrder NoRecur'
+    # bt.midOrder_NoRecur(bt.root)
+    print 'postOrder NoRecur'
+    bt.postOrder_NoRecur(bt.root)
