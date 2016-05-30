@@ -5,7 +5,7 @@ __author__ = 'liubo'
 @version: 
 @author: 刘博
 @license: Apache Licence 
-@contact: ustbliubo@qq.com
+@contact: ustb_liubo@qq.com
 @site: http://www.phpgao.com
 @software: PyCharm
 @file: getMin.py
