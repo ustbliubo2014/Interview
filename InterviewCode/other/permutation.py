@@ -22,15 +22,6 @@ def permutation(result, str, list):
             permutation(result, str + "-" + tmp_str, tmp_list)
 
 
-def permutation_c(list, result, str):
-    if len(list) == 1:
-        result.append(str+'-'+list[0])
-    else:
-        for index in range(len(list)):
-            list[i]
-
-
-
 if __name__ == '__main__':
     test = []
     permutation(test, '', ['a','b','c','d'])
