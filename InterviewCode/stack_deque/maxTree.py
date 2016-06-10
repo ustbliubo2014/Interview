@@ -31,7 +31,6 @@ def popStack_setDict(stack, dict):
     if len(stack) == 0:
         dict[pop_node] = None
     else:
-        print pop_node.value, stack[-1].value
         dict[pop_node] = stack[-1]
 
 
@@ -40,7 +39,7 @@ def get_left_big_dict(array):
     left_big_stack = []
     left_big_dict = {}
     for index, node in enumerate(array):
-        if len(left_big_stack) > 0 and left_big_stack[-1] < node.value:
+        while len(left_big_stack) > 0 and left_big_stack[-1].value < node.value:
             popStack_setDict(left_big_stack, left_big_dict)
         left_big_stack.append(node)
     while len(left_big_stack) > 0:
@@ -54,7 +53,7 @@ def get_right_big_dict(array):
     right_big_dict = {}
     for index in range(len(array)-1, -1, -1):
         node = array[index]
-        if len(right_big_stack) > 0 and node.value < right_big_stack[-1]:
+        while len(right_big_stack) > 0 and right_big_stack[-1].value < node.value:
             popStack_setDict(right_big_stack, right_big_dict)
         right_big_stack.append(node)
     while len(right_big_stack) > 0:
@@ -63,14 +62,14 @@ def get_right_big_dict(array):
 
 
 def build_max_tree(array):
-    right_big_dict = get_right_big_dict(array)
     left_big_dict = get_left_big_dict(array)
-    pdb.set_trace()
+    right_big_dict = get_right_big_dict(array)
+
     for index in range(len(array)):
         current_node = array[index]
+
         left_node = left_big_dict.get(current_node)
         right_node = right_big_dict.get(current_node)
-        print index, left_node.value, right_node.value
         if left_node == None and right_node == None:
             head = current_node
         elif left_node == None:
@@ -103,4 +102,4 @@ if __name__ == '__main__':
     node5 = Node(2)
     array = [node1, node2, node3, node4, node5]
     head = build_max_tree(array)
-    # print head.value, head.left.value, head.right.value
+    print head.value, head.left.left.value, head.right.left.value
