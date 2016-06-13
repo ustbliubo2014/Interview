@@ -8,7 +8,7 @@ __author__ = 'liubo'
 @contact: ustb_liubo@qq.com
 @software: PyCharm
 @file: combination.py
-@time: 2016/6/13 22:25
+@time: 2016/6/13 22:29
 """
 
 
