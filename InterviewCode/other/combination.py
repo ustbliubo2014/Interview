@@ -7,8 +7,8 @@ __author__ = 'liubo'
 @license: Apache Licence 
 @contact: ustb_liubo@qq.com
 @software: PyCharm
-@file: max_min_sum.py
-@time: 2016/6/10 22:17
+@file: combination.py
+@time: 2016/6/13 22:25
 """
 
 

@@ -5,7 +5,7 @@ __author__ = 'liubo'
 @version: 
 @author: 刘博
 @license: Apache Licence 
-@contact: ustbliubo@qq.com
+@contact: ustb_liubo@qq.com
 @software: PyCharm
 @file: window_arr_max.py
 @time: 2016/6/9 17:07

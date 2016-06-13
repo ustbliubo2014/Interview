@@ -5,7 +5,7 @@ __author__ = 'liubo'
 @version: 
 @author: 刘博
 @license: Apache Licence 
-@contact: ustbliubo@qq.com
+@contact: ustb_liubo@qq.com
 @software: PyCharm
 @file: cat_dog_deque.py
 @time: 2016/6/1 23:39
