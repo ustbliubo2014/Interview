@@ -6,7 +6,7 @@
 @file: topKFrequent.py
 @time: 2016/8/8 15:22
 @contact: ustb_liubo@qq.com
-@annotation: topKFrequent
+@annotation: topKElement
 """
 import sys
 import logging
