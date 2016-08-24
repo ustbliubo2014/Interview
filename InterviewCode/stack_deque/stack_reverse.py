@@ -1,13 +1,14 @@
-#!/usr/bin/env python
 # encoding: utf-8
+__author__ = 'liubo'
 
 """
-@author: liubo-it
-@software: PyCharm Community Edition
-@file: stack_reverse.py
-@time: 2016/5/30 10:17
+@version:
+@author: 刘博
+@license: Apache Licence
 @contact: ustb_liubo@qq.com
-@annotation: stack_reverse
+@software: PyCharm
+@file: maxTree.py
+@time: 2016/6/10 9:33
 """
 
 
