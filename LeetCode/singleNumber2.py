@@ -27,16 +27,25 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        nums = map(lambda x: int(bin(-x & 0xffffffff)[2:]), nums)
         init = reduce(lambda x, y: x^y, nums, 0)
-        k = int(math.log(init, 2))
-        tmp1 = tmp2 = 0
-        for num in nums:
-            if ((num >> k) & 1) == 0:
-                tmp1 ^= num
-            else:
-                tmp2 ^= num
-        return tmp1, tmp2
+        if init > 0:
+            k = int(math.log(init, 2))
+            tmp1 = tmp2 = 0
+            for num in nums:
+                if ((num >> k) & 1) == 0:
+                    tmp1 ^= num
+                else:
+                    tmp2 ^= num
+            return tmp1, tmp2
+        else:
+            # 有一个是负数,直接按正负来分
+            tmp1 = tmp2 = 0
+            for num in nums:
+                if num >= 0:
+                    tmp1 ^= num
+                else:
+                    tmp2 ^= num
+            return tmp1, tmp2
 
 
 if __name__ == '__main__':
