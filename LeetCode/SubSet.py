@@ -25,8 +25,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-
+        has_process_dic = {}
+        nums.sort()
+        has_process_dic[''] = nums[:]
+        no_process_list = ['']
+        index_dic = dict(zip(nums, range(len(nums))))
+        while len(no_process_list) > 0:
+            element = no_process_list.pop()
+            element_no_process_list = has_process_dic.get(element)
+            for k in element_no_process_list:
+                this_new_element = element + ' ' + str(k)
+                this_new_element_no_process_list = nums[index_dic.get(k)+1:]
+                has_process_dic[this_new_element] = this_new_element_no_process_list
+                no_process_list.append(this_new_element)
+        result = []
+        for k in has_process_dic:
+            result.append(map(int, k.rstrip().split()))
+        return result
 
 
 if __name__ == '__main__':
-    pass
+    nums = [1, 2, 2]
+    solution = Solution()
+    result = solution.subsets(nums)
+    print result
