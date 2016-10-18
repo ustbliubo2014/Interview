@@ -23,18 +23,43 @@ sys.setdefaultencoding("utf-8")
 
 
 class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        has_process_dic = {}
+        nums.sort()
+        has_process_dic[''] = nums[:]
+        no_process_list = ['']
+        index_dic = dict(zip(nums, range(len(nums))))
+        while len(no_process_list) > 0:
+            element = no_process_list.pop()
+            element_no_process_list = has_process_dic.get(element)
+            for k in element_no_process_list:
+                this_new_element = element + ' ' + str(k)
+                this_new_element_no_process_list = nums[index_dic.get(k)+1:]
+                has_process_dic[this_new_element] = this_new_element_no_process_list
+                no_process_list.append(this_new_element)
+        result = []
+        for k in has_process_dic:
+            result.append(map(int, k.rstrip().split()))
+        return result
+
+
     def subsetsWithDup(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
         # mapping_relation = dict(zip(map(str, range(len(nums))), map(str, nums)))
+        if len(nums) == len(set(nums)):
+            return self.subsets(nums)
         max_num = max(nums) + 1
         mapping_relation = {}
         nums.sort()
         tmp_set = set()
         for index, element in enumerate(nums):
-            print element, element in tmp_set
             if element in tmp_set:
                 mapping_relation[str(max_num)] = str(element)
                 max_num += 1
@@ -42,6 +67,9 @@ class Solution(object):
                 mapping_relation[str(element)] = str(element)
             tmp_set.add(element)
         nums = mapping_relation.keys()
+        for k in nums:
+            if int(k) in tmp_set:
+                mapping_relation.pop(k)
         has_process_dic = {}
         nums.sort()
         has_process_dic[''] = nums[:]
@@ -72,7 +100,7 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    nums = [1, 1, 2, 2]
+    nums = [-1, 1, 2]
     solution = Solution()
     result = solution.subsetsWithDup(nums)
     print result
